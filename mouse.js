@@ -1,5 +1,6 @@
 const testBox = document.getElementById("testBox");
 const resizeBox = document.getElementById("resize");
+const scrollBox = document.getElementById("scroll");
 
 const eventVars = {
   mousedown: document.getElementById("mousedown"),
@@ -32,7 +33,25 @@ function handleMouseEvent(event, eventType) {
   }
 }
 
+function adjustStyles() {
+  const windowWidth =
+    window.innerWidth ||
+    document.documentElement.clientWidth ||
+    document.body.clientWidth;
+  const windowHeight =
+    window.innerHeight ||
+    document.documentElement.clientHeight ||
+    document.body.clientHeight;
+
+  const clientX = document.getElementById("clientX");
+  const clientY = document.getElementById("clientY");
+  clientX.style.width = windowWidth + "px";
+  clientY.style.height = windowHeight + "px";
+  clientX.innerHTML = "<br />clientX(" + windowWidth + "px)";
+  clientY.innerHTML = "&nbsp;&nbsp;clientY(" + windowHeight + "px)";
+}
 window.addEventListener("resize", function () {
+  adjustStyles();
   // Your scroll event handling code here
   testBox.innerHTML = "resize";
   resizeBox.style.backgroundColor = "aqua";
@@ -40,3 +59,14 @@ window.addEventListener("resize", function () {
     resizeBox.style.backgroundColor = "white";
   }, 100);
 });
+
+window.addEventListener("scroll", function () {
+  // Your scroll event handling code here
+  testBox.innerHTML = "scroll";
+  scrollBox.style.backgroundColor = "aqua";
+  setTimeout(() => {
+    scrollBox.style.backgroundColor = "white";
+  }, 100);
+});
+
+window.onload = adjustStyles();
