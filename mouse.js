@@ -70,3 +70,18 @@ window.addEventListener("scroll", function () {
 });
 
 window.onload = adjustStyles();
+
+const offsetPos = document.getElementById("offsetPos");
+const clientPos = document.getElementById("clientPos");
+const pagePos = document.getElementById("pagePos");
+function checkPos(e) {
+  clientPos.innerHTML = `client: ${e.clientX}, ${e.clientY}`;
+  pagePos.innerHTML = `page: ${e.pageX}, ${e.pageY}`;
+}
+function checkPosBox(e) {
+  offsetPos.innerHTML = `offset: ${e.offsetX}, ${e.offsetY}`;
+  clientPos.innerHTML = `client: ${e.clientX}, ${e.clientY}`;
+  pagePos.innerHTML = `page: ${e.pageX}, ${e.pageY}`;
+}
+testBox.addEventListener("click", checkPosBox);
+document.addEventListener("click", checkPos);

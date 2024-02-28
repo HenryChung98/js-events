@@ -141,18 +141,10 @@ td {
   right: 90px;
 }
 
-/* #pageX {
-  width: 1500px;
-  height: 5px;
-  background-color: aquamarine;
-  color: aquamarine;
+#sizeTb {
+  height: 50px;
   position: absolute;
-} */
-
-/* #pageY {
-  width: 5px;
-  height: 1500px;
-  background-color: aquamarine;
-  color: aquamarine;
-  position: absolute;
-} */
+  top: 50px;
+  text-align: center;
+  margin: auto;
+}
